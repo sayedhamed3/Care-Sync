@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Appointment</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/appointments-new.css">
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <div id="main-container">
+        <div id="title">
+            <h1>New Appointment</h1>
+        </div>
+        <div id="new-appointment-form">
+            <form action="/appointments" method="POST">
+            
+                <label for="date">Date: </label>
+                <input class="text-field" type="datetime-local" name="date" id="date" placeholder="Select Date">
+
+        
+                <label for="appointment">Patient:</label>
+                <select class="dropdown" name="patient" id="patient">
+                    <% patients.forEach(patient => { %>
+                        <option value="<%= patient._id %>"><%= patient.name %></option>
+                    <% }) %>
+                </select>
+
+        
+                <label for="notes">Notes: </label>
+                <textarea type="text" name="notes" id="notes" placeholder="Add Notes"></textarea>
+                
+                <button type="submit">Create Appointment</button>
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>

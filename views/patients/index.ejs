@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients</title>
+    <script defer src="./js/patients/index.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/patients/index.css">
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <div id="main-container">
+
+        <div class="patients-header">
+            <h1>Patients</h1>
+    
+            <a href="/patients/new" id="add-patient-button">Add Patient</a>
+        </div>
+           
+    
+        <div class="tabs">
+            <button id="myPatientsTab" class="<%= tab === 'myPatients' ? 'selected-tab' : '' %>">My Patients</button>
+            <button id="allPatientsTab" class="<%= tab === 'allPatients' ? 'selected-tab' : '' %>">All Patients</button>
+        </div>
+        
+        
+        <form id="searchForm" action="/patients" method="GET">
+            <div id="search-bar">
+                <input type="text" name="search" id="search" placeholder="Search..." value="<%= typeof search !== 'undefined' ? search : '' %>" >
+            <input type="hidden" name="tab" id="tabInput" value="<%= typeof tab !== 'undefined' ? tab : 'myPatients' %>">
+            <button type="submit" id="search-button">Search</button>
+            </div>  
+            <a id="reset-search-button" href="/patients?tab=<%= tab %>">Reset</a>
+        </form>
+
+        <div id="allPatients">
+            <% if ( search && allPatients.length === 0 ) { %>
+                <p>No patients found</p>
+            <% } else { %>
+                <% allPatients.forEach(patient => { %>
+                    <div class="patient-card">   
+                    <a href="/patients/<%= patient._id %>">
+                        <div class="card-main">
+                                <h3><%= patient.name.toUpperCase() %></h3>
+                                <ul>
+                                    <li>Age: <%= patient.age %></li>
+                                    <li>Contact Number: <%= patient.phone %></li>
+                                    <li>Email: <%= patient.email %></li>
+                                </ul>
+                        </div>
+                        <div class="card-end">
+                            View Details
+                        </div>
+                    </a>
+                    </div>
+                <% }) %>
+            <% } %>
+        </div>
+    
+        <div id="myPatients" class="patient-list">
+            <% if (search && myPatients.length === 0) { %>
+                <p>No patients found</p>
+            <% } else if (myPatients.length === 0) { %>
+                <p>Your patient list is empty. Add a patient!</p>
+            <% } else { %>
+                <% myPatients.forEach(patient => { %>
+                    <div class="patient-card">   
+                        <a href="/patients/<%= patient._id %>">
+                            <div class="card-main">
+                                    <h3><%= patient.name.toUpperCase() %></h3>
+                                    <ul>
+                                        <li>Age: <%= patient.age %></li>
+                                        <li>Contact Number: <%= patient.phone %></li>
+                                        <li>Email: <%= patient.email %></li>
+                                    </ul>
+                            </div>
+                            <div class="card-end">
+                                View Details
+                            </div>
+                        </a>
+                        </div>
+                <% }) %>
+            <% } %>
+        </div>
+    
+
+    </div>
+    
+
+</body>
+
+</html>

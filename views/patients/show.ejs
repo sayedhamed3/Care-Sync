@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/patients/show.css">
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <div id="main-container">
+        <h1><%= patient.name.toUpperCase() %></h1>
+    
+
+
+        <h2>Patient Details:</h2>
+        <div id="patient-details">
+            <h4>Name: <%= patient.name %> </h4>
+            <h4>Age: <%= patient.age %> years</h4>
+            <h3>Contact Details:</h3>
+            <h4>Email: <%= patient.email %></h4>
+            <h4>Phone: <%= patient.phone %></h4>
+        </div>
+
+        <h2>Medical Records:</h2>
+        <% if (records.length === 0) { %>
+            <p>No previous medical records</p>
+        <% } else { %>
+            <% records.forEach(record => { %>
+                <% 
+                const date = new Date(record.date); 
+                const hours = date.getHours() % 12 || 12;
+                const minutes = date.getMinutes().toString().padStart(2, '0');
+                const period = date.getHours() >= 12 ? "PM" : "AM";
+                const day = date.getDate().toString().padStart(2, '0');
+                const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                const year = date.getFullYear();
+                const formattedDate = `${hours}:${minutes} ${period} ${day}/${month}/${year}`;
+            %>
+                <div class="medical-record-card">
+                    <div class="mrc-main">
+                        <p> Dr. <%= record.doctor.name %> at <%=formattedDate %> <br>  Notes: <%= record.notes ? record.notes : "No Notes" %></p>
+                    </div>
+                    <div class="mrc-end">
+                        <a href="/patients/<%= patient._id %>/<%= record._id %>">View Record Details</a>
+                    </div>
+                </div>
+            <% }) %>
+        <% } %>
+
+        
+        <h2>My Patients List:</h2>
+        <div id="is-my-patient">
+            <% if(isMyPatient) { %>
+                <p><%= patient.name %> is your patient.</p>
+                <a id="remove-from-list-button" href="/patients/<%= patient.id %>/pullFromDoctor">Remove from my patients</a>
+            <% } else { %>
+                <p><%= patient.name %> is not your patient.</p>    
+                <a id="add-to-list-button" href="/patients/<%= patient._id %>/pushToDoctor">Add to my patients</a>
+            <% } %>    
+        </div>
+
+        <div id="buttons-container">
+            <a id="edit-patient-button" href="/patients/<%= patient._id %>/edit">EDIT PATIENT</a>
+    
+            <form action="/patients/<%= patient._id %>?_method=DELETE" method="POST" >
+                <button id="delete-patient-button" type="submit">DELETE PATIENT</button>
+            </form>
+        </div>
+       
+
+    </div>
+</body>
+</html>

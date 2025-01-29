@@ -1,0 +1,128 @@
+
+#main-container{
+    width: 70%;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.appointment-header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}  
+
+#add-appointment-button{
+    border: 3px solid var(--primary-color);
+    border-radius: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+}
+
+#add-appointment-button:hover{
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+
+
+button{
+    width: 50%;
+    border: none;
+    font-weight: 500;
+    font-size: 1.3em;
+    color: var(--primary-color);
+    background-color: var(--light-color);
+}
+
+button:hover{
+    background-color: var(--light-primary-color);
+}
+
+#all-appointments{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.appointment-card{
+
+    border: 1px solid var(--primary-color);
+    border-radius: 1rem;
+    width: 100%;
+    margin: 1em 0;
+    padding: 20px;
+
+
+}
+
+.appointment-card:hover{
+    background-color: var(--light-primary-color);
+}
+
+.appointment-card a{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: black
+}
+
+.appointment-card h3{
+    margin:0;
+    font-size: 1.5em;
+}
+
+.appointment-card ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.card-main{
+    width: 80%;
+}
+
+.card-end{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    width: 100%;
+    font-size: 0.8em;
+    color: var(--primary-color);
+}
+
+.top-card {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    align-items: center;
+    color: black
+}
+
+#appointment-name {
+    margin: 0 20px 0 0;
+}
+
+#date-text {
+    margin: 10px 0 0 0 ;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+#status-text {
+    background: green;
+    padding: 10px 20px;
+    font-size: 0.7rem;
+    font-weight: 400;
+    border-radius: 2rem;
+    color: var(--light-color);
+}

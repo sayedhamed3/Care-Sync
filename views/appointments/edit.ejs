@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Appointment</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/appointments-edit.css">
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    
+   
+    <div id="main-container">
+        <div id="title">
+            <h1>Edit Appointment</h1>
+        </div>
+        <div id="edit-appointment-form"">
+            <form action="/appointments/<%= appointment._id %>?_method=PUT" method="POST">
+
+                <label for="patient">Patient:</label>
+                <select class="dropdown" name="patient" id="patient">
+                    <% patients.forEach(patient => { %>
+                        <option value="<%= patient._id %>" <%= patient._id.toString() === appointment.patient.toString() ? 'selected' : ''  %>><%= patient.name %></option>
+    
+                    <% }) %>
+                   
+                </select>
+
+                
+                <label for="date">Date: </label>
+                <input class="text-field" type="datetime-local" name="date" id="date" placeholder="Select Date" value="<%= appointment.date.toISOString().split('T')[0] %>">
+
+                <br>
+
+                <label for="notes">Notes: </label>
+                <textarea type="text" name="notes" id="notes" placeholder="Add Notes" value="<%= appointment.notes %>"><%= appointment.notes %></textarea>
+
+                <button type="submit">Edit Appointment</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

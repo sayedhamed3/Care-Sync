@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/appointments-show.css">
+</head>
+<body>
+
+    <form action="/patients/<%= patient._id %>/newRecord" method="POST">
+
+        <label id="input-field" class="field-label" for="diagnosis">Diagnosis:</label>
+        <br>
+        <input id="input-field" class="text-field" type="text" name="diagnosis" id="diagnosis" required>
+    
+        <br>
+        <br>
+    
+        <label class="field-label" for="prescription">Prescription</label>
+        <br>
+        <input id="input-field" class="text-field" type="text" name="prescription" id="prescription" required>
+    
+        <br>
+        <br>
+    
+        <label class="field-label" for="notes">Notes</label>
+        <br>
+        <textarea id="input-field" class="text-field" name="notes" id="notes" required></textarea>
+    
+        <br>
+        <br>
+    
+        <input class="text-field" type=hidden name="appointmentId" value="<%= appointment._id %>">
+    
+        <button id="add-record-button" type="submit">Submit Record</button>
+    </form>
+    
+</body>
+</html>

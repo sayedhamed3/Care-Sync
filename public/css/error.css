@@ -1,0 +1,15 @@
+
+body{
+    background-color: var(--light-primary-color);
+}
+
+#main-container{
+    background-color: var(--primary-color);
+}
+
+h1{
+    margin-top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 30px 20px;
+}

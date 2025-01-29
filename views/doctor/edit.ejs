@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/profile-edit.css">
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <div id="main-container">
+      <h1 id="title">Create new account with us</h1>
+        
+        <form id="edit-doctor-form" action="/auth/<%= doctor._id %>?_method=PUT" method="POST">
+
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" required value="<%= doctor.name %>"/>
+
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" required value="<%= doctor.email %>"/>
+    
+        <label for="phone">Phone: </label>
+        <input type="text" name="phone" id="phone" required minlength="8" maxlength="8" value="<%= doctor.phone %>"/>
+    
+        <label for="specialization">Specialization</label>
+        <select name="specialization" id="specialization">
+          <option value="general-practitioner" <%= doctor.specialization === 'general-practitioner' ? 'selected' : '' %>>General Practitioner</option>
+          <option value="cardiologist" <%= doctor.specialization === 'cardiologist' ? 'selected' : '' %>>Cardiologist</option>
+          <option value="dermatologist" <%= doctor.specialization === 'dermatologist' ? 'selected' : '' %>>Dermatologist</option>
+          <option value="pediatrician" <%= doctor.specialization === 'pediatrician' ? 'selected' : '' %>>Pediatrician</option>
+          <option value="neurologist" <%= doctor.specialization === 'neurologist' ? 'selected' : '' %>>Neurologist</option>
+          <option value="orthopedic-surgeon" <%= doctor.specialization === 'orthopedic-surgeon' ? 'selected' : '' %>>Orthopedic Surgeon</option>
+          <option value="psychiatrist" <%= doctor.specialization === 'psychiatrist' ? 'selected' : '' %>>Psychiatrist</option>
+          <option value="endocrinologist" <%= doctor.specialization === 'endocrinologist' ? 'selected' : '' %>>Endocrinologist</option>
+          <option value="oncologist" <%= doctor.specialization === 'oncologist' ? 'selected' : '' %>>Oncologist</option>
+          <option value="radiologist" <%= doctor.specialization === 'radiologist' ? 'selected' : '' %>>Radiologist</option>
+          <option value="ophthalmologist" <%= doctor.specialization === 'ophthalmologist' ? 'selected' : '' %>>Ophthalmologist</option>
+          <option value="ent-specialist" <%= doctor.specialization === 'ent-specialist' ? 'selected' : '' %>>ENT Specialist</option>
+          <option value="gastroenterologist" <%= doctor.specialization === 'gastroenterologist' ? 'selected' : '' %>>Gastroenterologist</option>
+          <option value="urologist" <%= doctor.specialization === 'urologist' ? 'selected' : '' %>>Urologist</option>
+          <option value="nephrologist" <%= doctor.specialization === 'nephrologist' ? 'selected' : '' %>>Nephrologist</option>
+          <option value="pulmonologist" <%= doctor.specialization === 'pulmonologist' ? 'selected' : '' %>>Pulmonologist</option>
+          <option value="rheumatologist" <%= doctor.specialization === 'rheumatologist' ? 'selected' : '' %>>Rheumatologist</option>
+        </select>
+        
+    
+        <!-- <label class="label" for="password">Password:</label>
+        <br>
+        <input class="text-field" type="password" name="password" id="password" required value="<%= doctor.password %>"/>
+    
+        <br>
+    
+        <label class="label" for="confirmPassword">Confirm Password:</label>
+        <br>
+        <input class="text-field" type="password" name="confirmPassword" id="confirmPassword" required />
+    
+        <br>
+        <br> -->
+    
+        <button type="submit">Submit</button>
+      </form>
+</body>
+</html>

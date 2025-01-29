@@ -1,0 +1,51 @@
+#main-container{
+    width: 70%;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title{
+    align-self:flex-start;
+}
+
+#edit-doctor-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#edit-doctor-form label{
+    padding: 2px;
+    font-size: 1.3em;
+}
+
+#edit-doctor-form input, select{
+    border-radius: 1em;
+    border: none;
+    background-color: var(--light-primary-color);
+    padding: 1em;
+    margin: 10px 0;
+}
+
+#edit-doctor-form button {
+    width: 15rem;
+    align-self: flex-end;
+    margin-top: 2em;
+    border: 3px solid var(--primary-color);
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+    color: var(--light-color);
+    padding: 8px;
+    font-weight: 600;
+    font-size:1.2em;
+}
+
+#edit-doctor-form button:hover {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+}
+
+
+

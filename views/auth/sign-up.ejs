@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareSync | Sign Up</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/sign-up.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="second-container">
+  
+      <h1 class="sub-title">Create new account with us</h1>
+      <a href="/auth/sign-in">
+        <button class="filled-button">
+          Login
+        </button>
+      </a>
+
+    </div>
+
+    <div class="first-container">
+      <h1 class="title">Create new account with us</h1>
+  
+      <form action="/auth/sign-up" method="POST">
+      <label class="label" for="name">Name: </label>
+      <br>
+      <input class="text-field" type="text" name="name" id="name" required />
+  
+      <br>
+  
+      <label class="label" for="email">Email: </label>
+      <br>
+      <input class="text-field" type="email" name="email" id="email" required />
+  
+      <br>
+  
+      <label class="label" for="phone">Phone: </label>
+      <br>
+      <input class="text-field" type="text" name="phone" id="phone" required minlength="8" maxlength="8" />
+  
+      <br>
+  
+      <label class="label" for="specialization">Specialization</label>
+      <br>
+      <select class="text-field" name="specialization" id="specialization">
+        <option value="general-practitioner">General Practitioner</option>
+        <option value="cardiologist">Cardiologist</option>
+        <option value="dermatologist">Dermatologist</option>
+        <option value="pediatrician">Pediatrician</option>
+        <option value="neurologist">Neurologist</option>
+        <option value="orthopedic-surgeon">Orthopedic Surgeon</option>
+        <option value="psychiatrist">Psychiatrist</option>
+        <option value="endocrinologist">Endocrinologist</option>
+        <option value="oncologist">Oncologist</option>
+        <option value="radiologist">Radiologist</option>
+        <option value="ophthalmologist">Ophthalmologist</option>
+        <option value="ent-specialist">ENT Specialist</option>
+        <option value="gastroenterologist">Gastroenterologist</option>
+        <option value="urologist">Urologist</option>
+        <option value="nephrologist">Nephrologist</option>
+        <option value="pulmonologist">Pulmonologist</option>
+        <option value="rheumatologist">Rheumatologist</option>
+      </select>
+  
+      <br>
+  
+      <label class="label" for="password">Password:</label>
+      <br>
+      <input class="text-field" type="password" name="password" id="password" required />
+  
+      <br>
+  
+      <label class="label" for="confirmPassword">Confirm Password:</label>
+      <br>
+      <input class="text-field" type="password" name="confirmPassword" id="confirmPassword" required />
+  
+      <% if (typeof error !== 'undefined' && error) { %>
+        <p style="color:red"><%= error %></p>
+      <% } else { %>
+        <br><br>
+        <% } %>
+  
+      <button class="outlined-button" type="submit">Sign up</button>
+    </form>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Details</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/record-show.css">
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <%  const date = new Date(record.date); 
+        const hours = date.getHours() % 12 || 12;
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        const period = date.getHours() >= 12 ? "PM" : "AM";
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        const formattedDate = `${hours}:${minutes} ${period} ${day}/${month}/${year}`; %>
+    
+    <div id="main-container">
+        <h1>Record Details</h1>
+
+        
+        <div id="record-title">
+            <h2>Record</h2>
+            <h3><%= formattedDate %></h3>
+        </div>
+        <div>
+            <h3>Diagnosis:</h3>
+            <h4><%= record.diagnosis %></h4>
+
+
+            <h3>Prescription:</h3>
+            <h4><%= record.prescription %></h4>
+
+
+            <h3>Notes:</h3>
+            <% if (record.notes) { %>
+                <h4><%= record.notes %></h4>
+            <% } else {%>
+                <h4>(No additional notes)</h4>
+            <% } %>
+        </div>
+ 
+        <h2>Doctor </h2>
+        <div id="doctor">
+            <h4>Name: <%= doctor.name %></h4>
+            <h4>Email: <%= doctor.email %></h4>
+            <h4>Specialization: <%= doctor.specialization %></h4>
+        </div>
+
+        <h2>Patient</h2>
+        <div id="patient">
+            <h4>Name: <%= patient.name %></h4>
+            <h4>Age: <%= patient.age %></h4>
+            <h4>Email: <%= patient.email %></h4>
+            <h4>Phone: <%= patient.phone %></h4>
+        </div>
+        
+</body>
+</html>

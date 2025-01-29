@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Patient</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/patients/new.css">
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <div id="main-container">
+        <h1 id="title">New Patient</h1>
+
+        <form id="new-patient-form" action="/patients" method="POST">
+
+            <label for="name">Name:</label>
+            <input type="text" name="name" required>
+    
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" required min="0" max="99">
+    
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+    
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone" required minlength="8" maxlength="8">
+            
+            <div id="checkbox-input">
+                <label for="isMyPatient">Add to your list?</label>
+                <input type="checkbox" name="isMyPatient" id="isMyPatient" checked>
+            </div>
+    
+            <button type="submit">Create Patient</button>
+        </form>
+
+    </div>
+ 
+   
+    
+    
+</body>
+</html>

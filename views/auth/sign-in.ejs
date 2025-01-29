@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareSync | Login</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/sign-in.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="first-container">
+      <h1 class="title">Login to your account</h1>
+      <form action="/auth/sign-in" method="POST">
+        <label class="field-label" for="email">Email: </label>
+        <br>
+        <input class="text-field" type="email" name="email" id="email" required />
+  
+        <br>
+  
+        <label class="field-label" for="password">Password: </label>
+        <br>
+        <input class="text-field" type="password" name="password" id="password" required />
+
+       
+    
+        <% if (typeof error !== 'undefined' && error) { %>
+          <p style="color:red"><%= error %></p>
+        <% } else { %>
+          <br><br>
+          <% } %>
+      
+  
+        <button class="filled-button" type="submit">Sign in</button>
+      </form>
+    </div>
+    <div class="second-container">
+  
+      <h1 class="sub-title">Create new account with us</h1>
+      <a href="/auth/sign-up">
+        <button class="outlined-button">
+          Sign Up
+        </button>
+      </a>
+
+    </div>
+  </div>
+
+</body>
+</html>

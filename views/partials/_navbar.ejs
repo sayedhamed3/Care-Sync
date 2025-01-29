@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NavBar</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <div class="nav-links">
+        <% if (user) { %>
+          <a class="nav-item" href="/auth/profile">Profile</a>
+          <a class="nav-item" href="/appointments">Appointments</a>
+          <a class="nav-item" href="/patients">Patients</a>
+        <% } else { %>
+        <a class="nav-item" href="/auth/sign-up">Sign Up</a>
+        <a class="nav-item" href="/auth/sign-in">Sign In</a>
+        <% } %>
+      </div>
+      <% if (user) { %>
+      <div class="sign-out">
+          <a class="nav-item" href="/auth/sign-out">Sign Out</a>
+      </div>
+      <% }%>
+    </div>    
+  </nav>  
+  
+</body>
+</html>

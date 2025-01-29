@@ -1,0 +1,129 @@
+
+#main-container{
+    width: 70%;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#date-text {
+    margin: 10px 0 0 0 ;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+#new-record-form {
+    width: 95%;
+}
+
+#add-record-button{
+    border: 3px solid var(--primary-color);
+    border-radius: 1rem;
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+}
+
+#add-record-button:hover{
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+h1{
+    text-align: center;
+    background-color: var(--primary-color);
+    width: 100%;
+    padding: 1rem;
+    margin:0;
+    box-sizing: border-box;
+    color: var(--light-color);
+}
+
+h2{
+    background-color: var(--light-primary-color);
+    width: 100%;
+    padding: 1rem;
+    margin:0;
+    box-sizing: border-box;
+}
+
+
+#appointment-details{
+    border: 1px solid var(--primary-color);
+    border-radius: 1rem;
+    width: 100%;
+    margin: 1em 0;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+#edit-appointment-button{
+    border: 3px solid var(--primary-color);
+    border-radius: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 1em;
+    font-size: 1em;
+    font-weight: 600;
+    background-color: var(--light-color);
+}
+
+#edit-appointment-button:hover{
+    background-color:  var(--primary-color);
+    color: var(--light-color);
+}
+
+#delete-appointment-button{
+    border: 3px solid red;
+    border-radius: 1rem;
+    color: red;
+    text-decoration: none;
+    padding: 1em;
+    margin-left: 1em;
+    font-size: 1em;
+    font-weight: 600;
+    background-color: var(--light-color);
+}
+
+#delete-appointment-button:hover{
+    background-color: red;
+    color: var(--light-color);
+}
+
+#buttons-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: end;
+    margin-bottom: 4em;
+}
+
+.medical-record-card{
+    display: flex;
+    border: 1px solid var(--primary-color);
+    border-radius: 1rem;
+    width: 100%;
+    margin: 1em 0;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.mrc-main{
+    width: 70%;
+}
+
+.mrc-end{
+    display: flex;
+    width: 30%;
+    font-size: 0.8em;
+    justify-content: end;
+    align-items: end;
+}
+
+.mrc-end a{
+    text-decoration: none;
+    color: var(--primary-color);
+}
